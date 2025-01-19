@@ -1,0 +1,130 @@
+body {
+    min-height: 100vh;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.circle-section {
+    flex: 1;
+    background-color: #ffcca3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.circle {
+    width: 500px;
+    height: 500px;
+    background-color: #e6e6e6;
+    border-radius: 50%;
+    transition: box-shadow 0.3s;
+}
+
+.circle.active {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+}
+
+.emoji {
+    font-size: 2rem; 
+    width: 40px; 
+    text-align: center;
+}
+
+.controls-section {
+    flex: 1;
+    background-color: #fff5e0;
+    padding: 3rem;
+}
+
+.control-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 1rem;
+}
+
+.control-button {
+    background-color: #ffcca3;
+    border: none;
+    border-radius: 2rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.control-button:hover {
+    background-color: #ffbc80;
+}
+
+.control-button.active {
+    background-color: #ffa857;
+}
+
+.toggle-container {
+    margin-top: 3rem;
+}
+
+.toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background-color: #ffcca3;
+    border-radius: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-switch::after {
+    content: '';
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    background-color: white;
+    border-radius: 50%;
+    top: 2px;
+    right: 2px;
+    transition: transform 0.3s;
+}
+
+.toggle-switch.active {
+    background-color: #ffa857;
+}
+
+.toggle-switch.active::after {
+    transform: translateX(-30px);
+}
+
+.percentage {
+    font-size: 1.2rem;
+    margin-left: auto;
+}
+
+body.dark-mode {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+body.dark-mode .controls-section {
+    background-color: #3d3d3d;
+}
+
+body.dark-mode .circle-section {
+    background-color: #4d4d4d;
+}
