@@ -69,6 +69,15 @@ main {
     border-radius: 50%;
     border: 2px solid #000;
     overflow: hidden; 
+    transition: box-shadow 0.3s ease-in-out; /* Glow effect */
+}
+
+.glowing-green {
+    box-shadow: 0 0 15px 5px #83E049; 
+}
+
+.glowing-red {
+    box-shadow: 0 0 15px 5px #FF9696; 
 }
 
 #camera {

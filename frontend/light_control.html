@@ -1,71 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Facial Expression</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facial Expression</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <button class="back-button">←</button>
-            <h1>Light</h1>
-        </header>
-        
-        <main>
-            <div class="light-preview">
-                <div class="circle">
-                    <video id="camera" autoplay></video>
-                </div>
+      <header>
+        <button class="back-button">←</button>
+        <h1>Light</h1>
+      </header>
+
+      <main>
+        <div class="light-preview">
+          <div class="circle">
+            <video id="camera" autoplay></video>
+          </div>
+        </div>
+
+        <div class="controls">
+          <img src="images/light.svg" width="200" />
+
+          <div class="brightness-controls">
+            <button class="control-btn decrease">−</button>
+            <div class="slider">
+              <div class="slider-fill"></div>
             </div>
-            
-            <div class="controls">
-                <img src="images/light.svg" width="200"/>
-                
-                <div class="brightness-controls">
-                    <button class="control-btn decrease">−</button>
-                    <div class="slider">
-                        <div class="slider-fill"></div>
-                    </div>
-                    <button class="control-btn increase">+</button>
-                </div>
-                
-                <div class="feedback">
-                    <span class="emoji">☹️</span>
-                    <span class="percentage">50%</span>
-                    <span class="emoji">🙂</span>
-                </div>
-                
-                <div class="mood-buttons">
-                    <button class="mood-btn focus">Focus</button>
-                    <button class="mood-btn relax">Relax</button>
-                    <button class="mood-btn sleep">Sleep</button>
-                </div>
-            </div>
-        </main>
+            <button class="control-btn increase">+</button>
+          </div>
+
+          <div class="feedback">
+            <span class="emoji">☹️</span>
+            <span class="percentage">50%</span>
+            <span class="emoji">🙂</span>
+          </div>
+
+          <div class="mood-buttons">
+            <button class="mood-btn focus">Focus</button>
+            <button class="mood-btn relax">Relax</button>
+            <button class="mood-btn sleep">Sleep</button>
+          </div>
+        </div>
+      </main>
     </div>
 
     <script>
-        // Access the camera
-        navigator.mediaDevices.getUserMedia({ video: true })
-          .then(function(stream) {
-            // Get the video element
-            var videoElement = document.getElementById('camera');
-            
-            // Set the stream as the video source
-            videoElement.srcObject = stream;
-          })
-          .catch(function(error) {
-            console.log('Error accessing the camera: ', error);
-          });
-      </script>
+      // Access the camera
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+          // Get the video element
+          var videoElement = document.getElementById("camera");
 
+          // Set the stream as the video source
+          videoElement.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.log("Error accessing the camera: ", error);
+        });
 
-</body>
+      // Get the circle element and the slider
+      const circle = document.querySelector(".circle");
+      const sliderFill = document.querySelector(".slider-fill");
+      const increaseBtn = document.querySelector(".increase");
+      const decreaseBtn = document.querySelector(".decrease");
+
+      // Initial brightness 50%
+      let brightness = 50;
+
+      // Function to update the brightness
+      function updateBrightness() {
+        // Update the slider fill width
+        sliderFill.style.width = `${brightness}%`;
+
+        // Update the percentage feedback
+        const percentage = document.querySelector(".percentage");
+        percentage.textContent = `${brightness}%`;
+      }
+
+      // Increase brightness (Green glow)
+      increaseBtn.addEventListener("click", () => {
+        if (brightness < 100) {
+          brightness += 10;
+          updateBrightness();
+
+          // Remove red glow and apply green glow
+          circle.classList.remove("glowing-red");
+          circle.classList.add("glowing-green");
+        }
+      });
+
+      // Decrease brightness (Red glow)
+      decreaseBtn.addEventListener("click", () => {
+        if (brightness > 0) {
+          brightness -= 10;
+          updateBrightness();
+
+          // Remove green glow and apply red glow
+          circle.classList.remove("glowing-green");
+          circle.classList.add("glowing-red");
+        }
+      });
+
+      // Initialize brightness on page load
+      updateBrightness();
+    </script>
+  </body>
 </html>
-
-
