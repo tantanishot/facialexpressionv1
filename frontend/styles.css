@@ -1,0 +1,286 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: white;
+  }
+  
+  .LightControl {
+    width: 1440px;
+    height: 1024px;
+    position: relative;
+    background: white;
+}
+
+.Group4 {
+    width: 161px;
+    height: 109px;
+    left: 838px;
+    top: 835px;
+    position: absolute;
+}
+
+.Rectangle20, .Rectangle23 {
+    width: 161px;
+    height: 109px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FFB8B8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.Focus {
+    left: 36px;
+    top: 35px;
+    position: absolute;
+    color: black;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Rectangle14 {
+    width: 775px;
+    height: 1024px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FFF1C1;
+}
+
+.Light {
+    left: 143px;
+    top: 50px;
+    position: absolute;
+    color: black;
+    font-size: 96px;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Idea {
+    width: 273px;
+    height: 273px;
+    left: 977px;
+    top: 159px;
+    position: absolute;
+}
+
+.ArrowBack {
+    width: 68px;
+    height: 68px;
+    padding: 11.33px;
+    left: 49px;
+    top: 64px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ArrowBack .Icon {
+    width: 45.33px;
+    height: 45.33px;
+}
+
+.Group5 {
+    width: 161px;
+    height: 109px;
+    left: 1033px;
+    top: 835px;
+    position: absolute;
+}
+
+.relax-button {
+    width: 161px;
+    height: 109px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #E0F0A8;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.relax {
+    left: 40px;
+    top: 35px;
+    position: absolute;
+    color: black;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.Group6 {
+    width: 161px;
+    height: 109px;
+    left: 1228px;
+    top: 835px;
+    position: absolute;
+}
+
+.Rectangle22 {
+    width: 161px;
+    height: 109px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #CEEEFE;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 25px;
+}
+
+.Sleep {
+    left: 40px;
+    top: 35px;
+    position: absolute;
+    color: black;
+    font-size: 32px;
+    font-family: Inter;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.IncDecBrightness {
+    width: 1220px;
+    height: 549px;
+    left: 106px;
+    top: 238px;
+    position: absolute;
+}
+
+.Camera {
+    width: 553px;
+    height: 549px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #C0C0C0;
+    border-radius: 9999px;
+    border: 3px black solid;
+}
+
+.Happy {
+    width: 60px;
+    height: 77px;
+    left: 1117px;
+    top: 445px;
+    position: absolute;
+}
+
+.Sad {
+    width: 60px;
+    height: 91px;
+    left: 828px;
+    top: 438px;
+    position: absolute;
+}
+
+.Slider {
+    width: 349px;
+    height: 48.96px;
+    left: 828px;
+    top: 341px;
+    position: absolute;
+}
+
+.Rectangle1 {
+    width: 349px;
+    height: 48.96px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FFF1C1;
+    border-radius: 100px;
+}
+
+.Rectangle2 {
+    width: 195.51px;
+    height: 48.96px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FFBF7A;
+    border-radius: 100px;
+}
+
+.Inc, .Dec {
+  width: 56px;
+  height: 56px;
+  position: absolute;
+  background: #FFF1C1;
+  border-radius: 50%;
+  border: 1px black solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Inc {
+  left: 1164px;
+  top: 246px;
+}
+
+.Dec {
+  left: 785px;
+  top: 246px;
+}
+
+.Inc img, .Dec img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.Ellipse1, .Ellipse5 {
+    width: 56px;
+    height: 56px;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    background: #FFF1C1;
+    border-radius: 9999px;
+    border: 1px black solid;
+}
+
+.Plus, .Minus {
+    width: 37px;
+    height: 37px;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Plus {
+    padding: 7.71px;
+    left: 9px;
+    top: 9px;
+}
+
+.Minus {
+    padding-left: 7.71px;
+    padding-right: 7.71px;
+    left: 9px;
+    top: 8px;
+}
+
+.Plus .Icon, .Minus .Icon {
+    width: 21.58px;
+    border: 2.85px #1E1E1E solid;
+}
+
+.Plus .Icon {
+    height: 21.58px;
+}
+
+.Minus .Icon {
+    height: 0px;
+}
