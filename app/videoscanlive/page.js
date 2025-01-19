@@ -24,23 +24,42 @@ export default function CameraPage() {
   }, []); // Run only once when the component is mounted
 
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '2rem' }}>
-      <h1>Camera Feed</h1>
+    <div style={{ display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      textAlign: 'center',
+      backgroundColor: '#fef4d4'}}>
+      <h1 style={{ marginBottom: '20px' , fontSize: '3rem'}}>
+        Scan Your Face</h1> {}
       {error ? (
         <p style={{ color: 'red' }}>{error}</p>
       ) : (
-        <video
-          ref={videoRef}
-          autoPlay
-          playsInline
-          muted
+        <div
           style={{
-            width: '640px',
-            height: '480px',
-            border: '2px solid black',
-            borderRadius: '10px',
+            width: '600px',
+            height: '600px',
+            borderRadius: '50%',
+            overflow: 'hidden',
+            border: '5px solid #000',
+            position: 'relative',
+            margin: '0 auto',
           }}
-        />
+        >
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
+            muted
+            style={{
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+              transform: 'scaleX(-1)', // Mirror the camera feed
+            }}
+          />
+        </div>
       )}
     </div>
   );
