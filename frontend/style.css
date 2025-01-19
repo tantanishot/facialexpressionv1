@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
 body {
     min-height: 100vh;
     display: flex;
@@ -10,7 +17,7 @@ body {
 
 .circle-section {
     flex: 1;
-    background-color: #ffcca3;
+    background-color: #FFBF7A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,69 +30,86 @@ body {
     background-color: #e6e6e6;
     border-radius: 50%;
     transition: box-shadow 0.3s;
+    border: 3px black solid;
 }
 
 .circle.active {
     box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
 }
 
-.emoji {
-    font-size: 2rem; 
-    width: 40px; 
-    text-align: center;
-}
-
 .controls-section {
     flex: 1;
     background-color: #fff5e0;
-    padding: 3rem;
+    padding: 5rem; 
 }
 
 .control-item {
     display: flex;
     align-items: center;
-    margin-bottom: 1.5rem;
-    gap: 1rem;
+    margin-bottom: 3rem; 
+    gap: 2rem; 
+}
+
+.emoji {
+    font-size: 5rem; 
+    width: 60px; 
+    text-align: center;
 }
 
 .control-button {
-    background-color: #ffcca3;
+    background-color: #FFBF7A;
     border: none;
     border-radius: 2rem;
-    padding: 0.75rem 1.5rem;
-    font-size: 1.2rem;
+    padding: 1.5rem 3rem; 
+    font-size: 2rem; 
     display: flex;
-    align-items: center;
-    gap: 0.5rem;
+    align-items: left;
+    gap: 2rem; 
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
+.light {
+    width: 50px;
+    height: 65px;
+    left: 885px;
+    top: 98px;
+    position: absolute;
+}
+
+.volume {
+    width: 50px;
+    height: 65px;
+    left: 885px;
+    top: 250px;
+    position: absolute;
+}
+
 .control-button:hover {
-    background-color: #ffbc80;
+    background-color: #FFBF7A;
 }
 
 .control-button.active {
-    background-color: #ffa857;
+    background-color: #FFBF7A;
 }
 
 .toggle-container {
-    margin-top: 3rem;
+    margin-top: 5rem; 
 }
 
 .toggle-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
+    margin-bottom: 2rem; 
+    font-size: 2rem; 
 }
 
 .toggle-switch {
-    width: 60px;
-    height: 30px;
+    width: 100px; 
+    height: 50px; 
     background-color: #ffcca3;
-    border-radius: 15px;
+    border-radius: 25px; 
     position: relative;
     cursor: pointer;
     transition: background-color 0.3s;
@@ -94,8 +118,8 @@ body {
 .toggle-switch::after {
     content: '';
     position: absolute;
-    width: 26px;
-    height: 26px;
+    width: 46px; 
+    height: 46px;
     background-color: white;
     border-radius: 50%;
     top: 2px;
@@ -104,15 +128,15 @@ body {
 }
 
 .toggle-switch.active {
-    background-color: #ffa857;
+    background-color: #FFBF7A;
 }
 
 .toggle-switch.active::after {
-    transform: translateX(-30px);
+    transform: translateX(-50px); 
 }
 
 .percentage {
-    font-size: 1.2rem;
+    font-size: 2rem; 
     margin-left: auto;
 }
 
@@ -128,3 +152,5 @@ body.dark-mode .controls-section {
 body.dark-mode .circle-section {
     background-color: #4d4d4d;
 }
+
+
