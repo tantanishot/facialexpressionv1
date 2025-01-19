@@ -14,8 +14,10 @@
   <body>
     <div class="container">
         <div class="circle-section">
-            <div class="circle" id="mainCircle"></div>
-        </div>
+            <div class="circle-frame">
+                <video id="camera" autoplay></video>
+            </div>
+          </div>
         <div class="controls-section">
             <div class="control-item">
                 <span class="emoji">😊</span>
@@ -51,6 +53,20 @@
         </div>
     </div>
 
-    <script src="website.js"></script>
+    
+
+    <script>
+        navigator.mediaDevices.getUserMedia({ video: true })
+.then(function(stream) {
+  // Get the video element
+  var videoElement = document.getElementById('camera');
+  
+  // Set the stream as the video source
+  videoElement.srcObject = stream;
+})
+.catch(function(error) {
+  console.log('Error accessing the camera: ', error);
+});
+    </script>
 </body>
 </html>

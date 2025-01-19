@@ -9,9 +9,6 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 const lightPercentage = document.getElementById('lightPercentage');
 const volumePercentage = document.getElementById('volumePercentage');
 
-const optionPage = document.getElementById('option-page');
-const lightControlPage = document.getElementById('light-control');
-const backButton = document.querySelector('.ArrowBack');
 
 let isLightActive = false;
 let isVolumeActive = false;
@@ -74,6 +71,20 @@ function setupToggle(element) {
         }
     });
 }
+
+// Access the camera
+navigator.mediaDevices.getUserMedia({ video: true })
+.then(function(stream) {
+  // Get the video element
+  var videoElement = document.getElementById('camera');
+  
+  // Set the stream as the video source
+  videoElement.srcObject = stream;
+})
+.catch(function(error) {
+  console.log('Error accessing the camera: ', error);
+});
+
 
 setupToggle(wifiToggle);
 setupToggle(airplaneToggle);

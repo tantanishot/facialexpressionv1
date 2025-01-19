@@ -24,14 +24,25 @@ body {
     padding: 2rem;
 }
 
-.circle {
-    width: 500px;
-    height: 500px;
-    background-color: #e6e6e6;
-    border-radius: 50%;
-    transition: box-shadow 0.3s;
-    border: 3px black solid;
-}
+.circle-frame {
+    width: 600px; 
+    height: 600px;
+    border-radius: 50%; 
+    overflow: hidden; 
+    border: 5px solid #000; 
+    position: relative;
+    margin: 0 auto; 
+  }
+  
+  
+
+  /* Video element inside the circle, with mirrored effect */
+  #camera {
+    width: 100%; 
+    height: auto;
+    object-fit: cover; /* Ensures the video covers the area without distortion */
+    transform: scaleX(-1); /* Mirrors the video horizontally */
+  }
 
 .circle.active {
     box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
