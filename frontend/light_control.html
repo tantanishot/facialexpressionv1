@@ -10,43 +10,61 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="LightControl">
-      <div class="Group4">
-          <div class="Rectangle20"></div>
-          <div class="Rectangle23"></div>
-          <div class="Focus">Focus</div>
-      </div>
-      <div class="Rectangle14"></div>
-      <div class="Light">Light</div>
-      <img class="Idea" src="images/light.svg" />
-      <div class="ArrowBack">
-          <img class="Icon" src="images/backarrow.svg"></div>
-      </div>
-      <div class="Group5">
-          <div class="relax-button"></div>
-          <div class="relax">Relax</div>
-      </div>
-      <div class="Group6">
-          <div class="Rectangle22"></div>
-          <div class="Sleep">Sleep</div>
-      </div>
-      <div class="IncDecBrightness">
-          <div class="Camera"></div>
-          <img class="Happy" src="images/happy.svg" />
-          <img class="Sad" src="images/sad.svg" />
-          <div class="Slider">
-              <div class="Rectangle1"></div>
-              <div class="Rectangle2"></div>
-          </div>
-          <div style="left: 970px; top: 464px; position: absolute; color: black; font-size: 32px; font-family: Inter; font-weight: 400; word-wrap: break-word">50%</div>
-          <div class="Inc">
-            <img src="images/plus.svg" alt="increase brightness">
-          </div>
-          <div class="Dec">
-              <img src="images/minus.svg" alt="decrease brightness">
-          </div>
-      </div>
-  </div>
+    <div class="container">
+        <header>
+            <button class="back-button">←</button>
+            <h1>Light</h1>
+        </header>
+        
+        <main>
+            <div class="light-preview">
+                <div class="circle">
+                    <video id="camera" autoplay></video>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <img src="images/light.svg" width="200"/>
+                
+                <div class="brightness-controls">
+                    <button class="control-btn decrease">−</button>
+                    <div class="slider">
+                        <div class="slider-fill"></div>
+                    </div>
+                    <button class="control-btn increase">+</button>
+                </div>
+                
+                <div class="feedback">
+                    <span class="emoji">☹️</span>
+                    <span class="percentage">50%</span>
+                    <span class="emoji">🙂</span>
+                </div>
+                
+                <div class="mood-buttons">
+                    <button class="mood-btn focus">Focus</button>
+                    <button class="mood-btn relax">Relax</button>
+                    <button class="mood-btn sleep">Sleep</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Access the camera
+        navigator.mediaDevices.getUserMedia({ video: true })
+          .then(function(stream) {
+            // Get the video element
+            var videoElement = document.getElementById('camera');
+            
+            // Set the stream as the video source
+            videoElement.srcObject = stream;
+          })
+          .catch(function(error) {
+            console.log('Error accessing the camera: ', error);
+          });
+      </script>
+
+
 </body>
 </html>
 

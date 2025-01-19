@@ -1,9 +1,8 @@
 /* sign in page */
-/* styles.css */
+
 body {
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
     background-color: #fef4d4;
     display: flex;
     justify-content: center;
@@ -41,6 +40,8 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
+    font-family: 'Josefin Sans', sans-serif; /* Set global font for the body */
+
   }
   
   .label {
@@ -87,5 +88,7 @@ body {
     cursor: pointer;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2);
     width: 100%;
+    font-family: 'Josefin Sans', sans-serif; /* Set global font for the body */
+
   }
   

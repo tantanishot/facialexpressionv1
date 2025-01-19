@@ -1,286 +1,182 @@
-/* General Styles */
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: 'Josefin Sans', sans-serif;
-    background-color: white;
-  }
-  
-  .LightControl {
-    width: 1440px;
-    height: 1024px;
-    position: relative;
-    background: white;
+    background-color: #ffffff;
+    min-height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
 }
 
-.Group4 {
-    width: 161px;
-    height: 109px;
-    left: 838px;
-    top: 835px;
-    position: absolute;
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+    width: 100vw;
+    margin: 0 auto;
+    padding: 20px;
 }
 
-.Rectangle20, .Rectangle23 {
-    width: 161px;
-    height: 109px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #FFB8B8;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+/* Header Section */
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
 }
 
-.Focus {
-    left: 36px;
-    top: 35px;
-    position: absolute;
-    color: black;
-    font-size: 32px;
-    font-family: Inter;
-    font-weight: 400;
-    word-wrap: break-word;
+.back-button {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
 }
 
-.Rectangle14 {
-    width: 775px;
-    height: 1024px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #FFF1C1;
+h1 {
+    padding: 20px;
+    font-size: 36px;
+    font-weight: bold;
 }
 
-.Light {
-    left: 143px;
-    top: 50px;
-    position: absolute;
-    color: black;
-    font-size: 96px;
-    font-family: 'Josefin Sans';
-    font-weight: 400;
-    word-wrap: break-word;
+/* Main Content Section */
+main {
+    flex: 1; 
+    display: flex;
+    gap: 40px;
 }
 
-.Idea {
-    width: 273px;
-    height: 273px;
-    left: 977px;
-    top: 159px;
-    position: absolute;
-}
-
-.ArrowBack {
-    width: 68px;
-    height: 68px;
-    padding: 11.33px;
-    left: 49px;
-    top: 64px;
-    position: absolute;
+/* Light Preview Section */
+.light-preview {
+    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #FFF1C1;
+    border-radius: 20px;
+    padding: 20px;
 }
 
-.ArrowBack .Icon {
-    width: 45.33px;
-    height: 45.33px;
+.circle {
+    width: 553px;
+    height: 549px;
+    background-color: #C0C0C0;
+    border-radius: 50%;
+    border: 2px solid #000;
+    overflow: hidden; 
 }
 
-.Group5 {
-    width: 161px;
-    height: 109px;
-    left: 1033px;
-    top: 835px;
-    position: absolute;
+#camera {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover; 
+    transform: scaleX(-1); 
+  }
+
+/* Controls Section */
+.controls {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
 }
 
-.relax-button {
-    width: 161px;
-    height: 109px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #E0F0A8;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
+.light-icon {
+    font-size: 48px;
+}
+
+.brightness-controls {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.control-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    background: #FFF1C1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.slider {
+    flex: 1;
+    height: 20px;
+    background: #FFF1C1;
+    border-radius: 10px;
+    position: relative;
+}
+
+.slider-fill {
+    width: 50%;
+    height: 100%;
+    background: #FFBF7A;
+    border-radius: 10px;
+}
+
+.feedback {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+}
+
+.percentage {
+    font-size: 20px;
+}
+
+.mood-buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.mood-btn {
+    padding: 30px 45px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.focus {
+    background-color: #FFB8B8;
 }
 
 .relax {
-    left: 40px;
-    top: 35px;
-    position: absolute;
-    color: black;
-    font-size: 32px;
-    font-family: Inter;
-    font-weight: 400;
-    word-wrap: break-word;
+    background-color: #E0F0A8;
 }
 
-.Group6 {
-    width: 161px;
-    height: 109px;
-    left: 1228px;
-    top: 835px;
-    position: absolute;
+.sleep {
+    background-color: #CEEEFE;
 }
 
-.Rectangle22 {
-    width: 161px;
-    height: 109px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #CEEEFE;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 25px;
-}
-
-.Sleep {
-    left: 40px;
-    top: 35px;
-    position: absolute;
-    color: black;
-    font-size: 32px;
-    font-family: Inter;
-    font-weight: 400;
-    word-wrap: break-word;
-}
-
-.IncDecBrightness {
-    width: 1220px;
-    height: 549px;
-    left: 106px;
-    top: 238px;
-    position: absolute;
-}
-
-.Camera {
-    width: 553px;
-    height: 549px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #C0C0C0;
-    border-radius: 9999px;
-    border: 3px black solid;
-}
-
-.Happy {
-    width: 60px;
-    height: 77px;
-    left: 1117px;
-    top: 445px;
-    position: absolute;
-}
-
-.Sad {
-    width: 60px;
-    height: 91px;
-    left: 828px;
-    top: 438px;
-    position: absolute;
-}
-
-.Slider {
-    width: 349px;
-    height: 48.96px;
-    left: 828px;
-    top: 341px;
-    position: absolute;
-}
-
-.Rectangle1 {
-    width: 349px;
-    height: 48.96px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #FFF1C1;
-    border-radius: 100px;
-}
-
-.Rectangle2 {
-    width: 195.51px;
-    height: 48.96px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #FFBF7A;
-    border-radius: 100px;
-}
-
-.Inc, .Dec {
-  width: 56px;
-  height: 56px;
-  position: absolute;
-  background: #FFF1C1;
-  border-radius: 50%;
-  border: 1px black solid;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-
-.Inc {
-  left: 1164px;
-  top: 246px;
-}
-
-.Dec {
-  left: 785px;
-  top: 246px;
-}
-
-.Inc img, .Dec img {
-  width: 24px;
-  height: 24px;
-  object-fit: contain;
-}
-
-.Ellipse1, .Ellipse5 {
-    width: 56px;
-    height: 56px;
-    left: 0px;
-    top: 0px;
-    position: absolute;
-    background: #FFF1C1;
-    border-radius: 9999px;
-    border: 1px black solid;
-}
-
-.Plus, .Minus {
-    width: 37px;
-    height: 37px;
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.Plus {
-    padding: 7.71px;
-    left: 9px;
-    top: 9px;
-}
-
-.Minus {
-    padding-left: 7.71px;
-    padding-right: 7.71px;
-    left: 9px;
-    top: 8px;
-}
-
-.Plus .Icon, .Minus .Icon {
-    width: 21.58px;
-    border: 2.85px #1E1E1E solid;
-}
-
-.Plus .Icon {
-    height: 21.58px;
-}
-
-.Minus .Icon {
-    height: 0px;
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+    
+    .circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .controls {
+        padding: 20px;
+    }
 }
