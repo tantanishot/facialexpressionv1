@@ -74,10 +74,10 @@
       const decreaseBtn = document.querySelector(".decrease");
 
       // Initial brightness 50%
-      let brightness = 50;
+      //let brightness = 50;
 
       // Function to update the brightness
-      function updateBrightness() {
+      function updateBrightness(brightness) {  // add brightness parameter
         // Update the slider fill width
         sliderFill.style.width = `${brightness}%`;
 

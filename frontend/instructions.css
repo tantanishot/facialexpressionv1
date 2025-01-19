@@ -1,0 +1,30 @@
+body {
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    background-color: #FFF1C1;
+    
+}
+
+/* Container to align elements in a row */
+.container {
+    display: flex;
+    align-items: center; /* Center the emoji and text vertically */
+  }
+  
+  /* Style for the emoji */
+  .emoji {
+    font-size: 3rem; /* Adjust emoji size */
+  }
+  
+  /* Style for the text */
+  .text {
+    font-size: 36px;
+    margin-left: 1rem; /* Space between the emoji and the text */
+    font-size: 1.5rem; /* Adjust the text size */
+  }
+  
+
+h1 {
+    font-size: 52px;
+    margin-bottom: 100px;
+}

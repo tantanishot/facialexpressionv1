@@ -1,72 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Face Control Interface</title>
 
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-</head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
   <body>
     <div class="container">
-        <div class="circle-section">
-            <div class="circle-frame">
-                <video id="camera" autoplay></video>
-            </div>
-          </div>
-        <div class="controls-section">
-            <div class="control-item">
-                <span class="emoji">😊</span>
-                <button class="control-button" id="lightButton">
-                    <img class="light" src="images/light.svg" />
-                    <span style="margin-left: 2rem;">Light</span>
-                </button>
-                <span class="percentage" id="lightPercentage">50%</span>
-            </div>
-            <div class="control-item">
-                <span class="emoji">😞</span>
-                <button class="control-button" id="volumeButton">
-                    <img class="volume" src="images/volume.svg" />
-                    <span style="margin-left: 2rem;">Volume</span>
-                </button>
-                <span class="percentage" id="volumePercentage">50%</span>
-            </div>
-
-            <div class="toggle-container">
-                <div class="toggle-item">
-                    <span>Wifi</span>
-                    <div class="toggle-switch" id="wifiToggle"></div>
-                </div>
-                <div class="toggle-item">
-                    <span>Airplane mode</span>
-                    <div class="toggle-switch" id="airplaneToggle"></div>
-                </div>
-                <div class="toggle-item">
-                    <span>Dark Mode 🌙</span>
-                    <div class="toggle-switch" id="darkModeToggle"></div>
-                </div>
-            </div>
+      <div class="circle-section">
+        <div class="circle-frame">
+          <video id="camera" autoplay></video>
         </div>
+      </div>
+      <div class="controls-section">
+        <div class="control-item">
+          <span class="emoji">😊</span>
+          <button class="control-button" id="lightButton">
+            <img class="light" src="images/light.svg" />
+            <span style="margin-left: 2rem">Light</span>
+          </button>
+          <div class="brightness-controls">
+            <button class="control-btn decrease">−</button>
+            <div class="slider">
+              <div class="slider-fill"></div>
+            </div>
+            <button class="control-btn increase">+</button>
+          </div>
+
+          <span class="percentage" id="lightPercentage">50%</span>
+        </div>
+        <div class="control-item">
+          <span class="emoji">😞</span>
+          <button class="control-button" id="volumeButton">
+            <img class="volume" src="images/volume.svg" />
+            <span style="margin-left: 2rem">Volume</span>
+          </button>
+          <div class="volume-controls">
+            <button class="control-btn decrease">−</button>
+            <div class="slider">
+              <div class="slider-fill"></div>
+            </div>
+            <button class="control-btn increase">+</button>
+          </div>
+          <span class="percentage" id="volumePercentage">50%</span>
+        </div>
+
+        <div class="toggle-container">
+          <div class="toggle-item">
+            <span>Wifi</span>
+            <div class="toggle-switch" id="wifiToggle"></div>
+          </div>
+          <div class="toggle-item">
+            <span>Airplane mode</span>
+            <div class="toggle-switch" id="airplaneToggle"></div>
+          </div>
+          <div class="toggle-item">
+            <span>Dark Mode 🌙</span>
+            <div class="toggle-switch" id="darkModeToggle"></div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    
+    <script>
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
+        .then(function (stream) {
+          // Get the video element
+          var videoElement = document.getElementById("camera");
+
+          // Set the stream as the video source
+          videoElement.srcObject = stream;
+        })
+        .catch(function (error) {
+          console.log("Error accessing the camera: ", error);
+        });
+
+      // Control brightness
+      const circle = document.querySelector(".circle");
+      const sliderFill = document.querySelector(".slider-fill");
+      const increaseBtn = document.querySelector(".increase");
+      const decreaseBtn = document.querySelector(".decrease");
+
+      // Initial brightness 50%
+      let brightness = 50;
+
+      // Function to update the brightness
+      function updateBrightness(brightness) {
+        this.brightness = brightness;
+        // Update the slider fill width
+        sliderFill.style.width = `${brightness}%`;
+
+        // Update the percentage feedback
+        const percentage = document.querySelector(".percentage");
+        percentage.textContent = `${brightness}%`;
+      }
+
+      // Increase brightness (Green glow)
+      /** increaseBtn.addEventListener("click", () => {
+        if (brightness < 100) {
+          brightness += 10;
+          updateBrightness();
+
+          // Remove red glow and apply green glow
+          circle.classList.remove("glowing-red");
+          circle.classList.add("glowing-green");
+        }
+      });
+      
+
+      // Decrease brightness (Red glow)
+      decreaseBtn.addEventListener("click", () => {
+        if (brightness > 0) {
+          brightness -= 10;
+          updateBrightness();
+
+          // Remove green glow and apply red glow
+          circle.classList.remove("glowing-green");
+          circle.classList.add("glowing-red");
+        }
+      });
+      **/
+
+      // Initialize brightness on page load
+      updateBrightness();
+
+      // Volume Control Logic
+      const circle2 = document.querySelector(".circle");
+      const sliderFill2 = document.querySelector(".slider-fill");
+      const increaseBtn2 = document.querySelector(".increase");
+      const decreaseBtn2 = document.querySelector(".decrease");
+      let volume = 50;
+
+      /**
+      function updateVolume() {
+        sliderFill.style.width = `${volume}%`;
+        const percentage = document.querySelector(".percentage");
+        percentage.textContent = `${volume}%`;
+      }
+
+      increaseBtn.addEventListener("click", () => {
+        if (volume < 100) {
+          volume += 10;
+          updateVolume();
+          circle2.classList.remove("glowing-red");
+          circle2.classList.add("glowing-green");
+        }
+      });
+
+      decreaseBtn.addEventListener("click", () => {
+        if (volume > 0) {
+          volume -= 10;
+          updateVolume();
+          circle2.classList.remove("glowing-green");
+          circle2.classList.add("glowing-red");
+        }
+      });
+
+      updateVolume();
+      **/
+    </script>
 
     <script>
-        navigator.mediaDevices.getUserMedia({ video: true })
-.then(function(stream) {
-  // Get the video element
-  var videoElement = document.getElementById('camera');
-  
-  // Set the stream as the video source
-  videoElement.srcObject = stream;
-})
-.catch(function(error) {
-  console.log('Error accessing the camera: ', error);
-});
+      const socket = new WebSocket("ws://localhost:8000");
+
+      socket.onopen = () => {
+        console.log("Connected to WebSocket server");
+      };
+
+      socket.onmessage = (event) => {
+        const data = JSON.parse(event.data);
+        if (data.type === "brightness") {
+          updateBrightnessSlider(data.value);
+        }
+      };
+
+      function updateBrightnessSlider(brightness) {
+        const slider = document.getElementById("brightnessSlider");
+        slider.value = brightness;
+      }
     </script>
-</body>
+  </body>
 </html>
