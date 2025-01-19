@@ -1,4 +1,4 @@
-import { SignIn } from '@clerk/nextjs';
+import { SignInButton } from '@clerk/nextjs';
 
 export default function SignInPage() {
   return (
@@ -13,17 +13,23 @@ export default function SignInPage() {
         backgroundColor: '#000', // Optional: Black background for styling
       }}
     >
-      <h1 style={{ color: '#fff', marginBottom: '20px' }}>Welcome to Faceable</h1>
+      <h1 style={{ color: '#fff', marginBottom: '20px' }}>Welcome to Our App</h1>
       <p style={{ color: '#aaa', marginBottom: '20px' }}>Please sign in to continue.</p>
-      <SignIn
-        routing="path"
-        path="/sign-in"
-        appearance={{
-          elements: {
-            footer: null, // Removes the "Secured by Clerk" footer
-          },
-        }}
-      />
+      <SignInButton>
+        <button
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            backgroundColor: '#0070f3',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+          }}
+        >
+          Sign In
+        </button>
+      </SignInButton>
     </div>
   );
 }
