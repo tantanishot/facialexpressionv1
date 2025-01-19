@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mirrored Camera Feed in Circular Frame</title>
+  <style>
+    /* Container for the circular frame */
+    .circle-frame {
+      width: 600px; 
+      height: 600px;
+      border-radius: 50%; /* Makes the div circular */
+      overflow: hidden; /* Hides any part of the video that overflows */
+      border: 5px solid #000; /* Optional: Add a border around the circle */
+      position: relative;
+      margin: 0 auto; /* Centers the circle horizontally */
+    }
+    
+    
+
+    /* Video element inside the circle, with mirrored effect */
+    #camera {
+      width: 100%; /* Makes the video fill the entire container */
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the area without distortion */
+      transform: scaleX(-1); /* Mirrors the video horizontally */
+    }
+  </style>
+</head>
+<body>
+  <h1>Scan face</h1>
+
+  <!-- Circular frame container -->
+  <div class="circle-frame">
+    <video id="camera" autoplay></video>
+  </div>
+
+  <script>
+    // Access the camera
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(function(stream) {
+        // Get the video element
+        var videoElement = document.getElementById('camera');
+        
+        // Set the stream as the video source
+        videoElement.srcObject = stream;
+      })
+      .catch(function(error) {
+        console.log('Error accessing the camera: ', error);
+      });
+  </script>
+</body>
+</html>
