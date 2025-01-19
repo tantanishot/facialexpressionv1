@@ -3,19 +3,19 @@
 import { SignInButton, SignedIn, SignedOut, useAuth } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
-import Head from 'next/head'; // <-- Import Head here
+import Head from 'next/head'; // Import Head for custom styles and meta tags
 
 export default function SignInPage() {
   const router = useRouter();
   const { isSignedIn } = useAuth();
 
+  // Prefetch the target page for smoother navigation
   useEffect(() => {
-    // Prefetch the target page for faster navigation
     router.prefetch('/videoscanlive');
   }, [router]);
 
+  // Redirect user to the videoscanlive page if already signed in
   useEffect(() => {
-    // Redirect to the desired page if the user is already signed in
     if (isSignedIn) {
       router.push('/videoscanlive');
     }
@@ -23,7 +23,10 @@ export default function SignInPage() {
 
   return (
     <>
-      {/* <Head>
+      {/* Head Section: Add custom fonts and global styles */}
+      <Head>
+        <title>Welcome to Faceable</title>
+        <meta name="description" content="Sign in to Faceable for real-time facial recognition and accessibility." />
         <link
           href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400;700&display=swap"
           rel="stylesheet"
@@ -31,9 +34,13 @@ export default function SignInPage() {
         <style>{`
           body {
             font-family: 'Josefin Sans', sans-serif;
+            margin: 0;
+            padding: 0;
           }
         `}</style>
-      </Head> */}
+      </Head>
+
+      {/* Main Sign-In Page */}
       <div
         style={{
           display: 'flex',
@@ -42,40 +49,49 @@ export default function SignInPage() {
           alignItems: 'center',
           height: '100vh',
           textAlign: 'center',
-          backgroundColor: '#fef4d4' // Background color from original HTML
+          backgroundColor: '#fef4d4', // Soft yellow background
+          margin: 0,
         }}
       >
+        {/* Signed-Out View */}
         <SignedOut>
+          {/* Welcome Header */}
           <h1
             style={{
               color: 'black',
-              backgroundColor: '#ffa256',
+              backgroundColor: '#ffa256', // Warm orange background for contrast
               padding: '20px',
               fontSize: '2rem',
               fontWeight: 'bold',
               borderRadius: '10px',
-              marginBottom: '40px', // Space between the heading and sign-in button
+              marginBottom: '40px',
               width: '100%',
-              maxWidth: '600px', // Limit the width of the heading
-              fontFamily: "'Josefin Sans', sans-serif", // Ensure the correct font is applied
+              maxWidth: '600px', // Keep the heading responsive
+              fontFamily: "'Josefin Sans', sans-serif",
+              boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)', // Subtle shadow for depth
             }}
           >
             Welcome to Faceable
           </h1>
+
+          {/* Subtext */}
           <p
             style={{
-              color: '#aaa',
+              color: '#777', // Light gray for subtext
               marginBottom: '20px',
-              fontSize: '2rem', // Increase font size for the text
-              fontWeight: 'bold', // Make it bold if needed
+              fontSize: '1.5rem',
+              fontWeight: 'bold',
+              fontFamily: "'Josefin Sans', sans-serif",
             }}
           >
-            Please sign in to continue.
+            Sign in to unlock real-time facial recognition.
           </p>
+
+          {/* Sign-In Button */}
           <SignInButton redirectUrl="/videoscanlive">
             <button
               style={{
-                backgroundColor: '#ffa256',
+                backgroundColor: '#ffa256', // Button matches branding colors
                 color: 'black',
                 border: 'none',
                 borderRadius: '30px',
@@ -83,23 +99,22 @@ export default function SignInPage() {
                 fontSize: '1.5rem',
                 fontWeight: 'bold',
                 cursor: 'pointer',
-                boxShadow: '0 4px 4px rgba(0, 0, 0, 0.2)',
+                boxShadow: '0 4px 4px rgba(0, 0, 0, 0.2)', // Subtle shadow for a raised effect
+                maxWidth: '300px', // Keep button width responsive
                 width: '100%',
-                fontFamily: "'Josefin Sans', sans-serif", // Ensure the correct font is applied here too
-                maxWidth: '300px', // Limit the button width
+                fontFamily: "'Josefin Sans', sans-serif",
               }}
             >
               Sign In
             </button>
           </SignInButton>
         </SignedOut>
+
+        {/* Redirect View for Signed-In Users */}
         <SignedIn>
-          <p style={{ color: '#fff' }}>Redirecting...</p>
+          <p style={{ color: '#555', fontSize: '1.2rem' }}>Redirecting to your dashboard...</p>
         </SignedIn>
       </div>
     </>
   );
 }
-
-
-
